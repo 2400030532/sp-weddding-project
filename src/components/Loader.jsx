@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
 
 export default function Loader({ onHide }) {
   const ref = useRef();

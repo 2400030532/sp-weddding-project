@@ -15,7 +15,7 @@ function playChime() {
       osc.connect(gain); gain.connect(audioCtx.destination);
       osc.start(now + i * 0.05); osc.stop(now + i * 0.05 + 1.3);
     });
-  } catch(err) {}
+  } catch {}
 }
 
 export default function MusicToggle() {

@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { spawnPetals } from './Hero';
+import { spawnPetals } from '../utils/petals';
 
 export default function RSVP() {
   const [success, setSuccess] = useState(false);
   const ref = useRef();
-  const heroRef = useRef(document.getElementById('hero'));
 
   useEffect(() => {
     const els = ref.current?.querySelectorAll('.reveal') || [];

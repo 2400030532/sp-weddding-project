@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { gsap } from 'gsap';
+import { spawnPetals } from '../utils/petals';
 
 const WEDDING = new Date('2026-08-15T19:46:00+05:30').getTime();
 
@@ -21,27 +22,6 @@ function useCountdown() {
     return () => clearInterval(id);
   }, []);
   return t;
-}
-
-export function spawnPetals(count, container) {
-  for (let i = 0; i < count; i++) {
-    const p = document.createElement('div');
-    p.className = 'petal';
-    p.style.left = Math.random() * 100 + '%';
-    p.style.top = '-20px';
-    const size = 10 + Math.random() * 10;
-    const color = Math.random() > 0.5 ? '#EFD48A' : '#A6192E';
-    p.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 20 20"><path d="M10 0 C15 5 15 15 10 20 C5 15 5 5 10 0Z" fill="${color}"/></svg>`;
-    container.appendChild(p);
-    gsap.to(p, {
-      y: container.offsetHeight + 60,
-      x: '+=' + (Math.random() * 160 - 80),
-      rotation: Math.random() * 360,
-      duration: 6 + Math.random() * 4,
-      ease: 'none',
-      onComplete: () => p.remove()
-    });
-  }
 }
 
 export default function Hero({ animate }) {
